@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="descrption" content="Practica llenguatge de marques utilitzant html, css i javascript. Pàgina de contacte">
+    <meta name="keywords" content="Practica,html,css,javascript,llenguatge,joc,hanjie,picross,nonograma,puzle,puzzle,">
+    <meta name="author" content="Samuel Romero Marín">
+    <link rel="shortcut icon" href="imatges/logo.jpg">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/formulari.css">
+    <title>Contacte</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="joc.html">Joc</a></li>
+                <li><a href="ajuda.html">Ajuda</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="contacte.html">Contacte</a></li>
+                <li><a href="configuracio.html">Configuració</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="estadistiques.html">Estadistiques</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Contacta amb mi!</h2>
+            <p>Demana dubtes i qüestions o simplement ajudem a solucionar errors!</p>
+            <!-- Formulari on només ens demana el nom, el correu i una petita descripció-->
+            <form class="formulari" action="#" method="POST">
+                <label for="nom">Nom<span class ="requerit">*<span></label>
+                <input type="text" name="nom" id="nom" placeholder="&#128100"><br>
+                <label for="email">Email<span class ="requerit">*<span></label>
+                <input type="email" name="direccioEmail" id="email" placeholder="&#9993;"><br>
+                <label for="missatge"></label>
+                <textarea name="missatge" id="missatge" cols="30" rows="5" placeholder="&#128441;"></textarea>
+                <input type="button" value="Envia!" id="form1">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h4>Hanjie</h4>
+            <ul>
+                <li><a href="joc.html">Joc</a></li>
+                <li><a href="ajuda.html">Ajuda</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="contacte.html">Contacte</a></li>
+                <li><a href="configuracio.html">Configuració</a></li>
+
+            </ul>
+        </section>
+        <section>
+            <h4>Direcció</h4>
+            <address>
+                Carrer Cabana, 31. <br>
+                Pont d'inca, Marratxí. <br>
+                Teléfon: 971 60 09 86 <br>
+                Fax: 971 79 48 09 <br>
+                Email: <a href="escola@esliceu.com">escola@esliceu.com</a>
+            </address>
+        </section>
+        <section>
+            <span>&copy; 2019 Samuel Romero Marín</span>
+        </section>
+    </footer>
+</body>
+
+</html>

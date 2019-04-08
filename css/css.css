@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous|Varela+Round');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Global */
+
+body {
+    width: 95%;
+    margin: auto;
+}
+
+main {
+    background-color:#e8e8e8;
+    font-family: 'Varela Round', sans-serif;
+}
+
+/* Menu */
+header {
+    /* Flex pare */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    position: sticky;
+    top: 0;
+
+    color: white;
+    font-family: 'Righteous', cursive;
+    background-color: #b399c4;
+    }
+header>h1>img {
+    width: 10%;
+}  
+header>nav{
+    /* Flex fill */
+    flex-basis: 100%;
+}
+    
+header>nav>ul{
+    /* Flex pare */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    list-style-type: none;
+    margin:0;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: hidden;
+}
+
+header>nav>ul>li a {
+    color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 30px;
+    text-decoration: none;
+    border-radius: 5%;
+    color: #5e008e;
+    font-weight: bold;
+}
+
+header>nav>ul>li:first-child>a {
+     background-color: #ffd800;
+}
+
+header>nav>ul>li a:hover {
+    background-color: #7c5ea3;
+    color:white;
+}
+
+
+/*footer*/
+
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #b399c4;
+    font-family: 'Righteous', cursive;
+}
+
+footer>section:nth-child(1), footer>section:nth-child(2) {
+    flex-basis: 50%;
+    padding-bottom: 5%;
+}
+#special {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    justify-content: center;
+}
+
+footer>section ul {
+    list-style-type: none;
+}
+
+footer>section ul li a{
+    text-decoration: none;
+}

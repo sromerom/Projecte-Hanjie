@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="descrption"
+        content="Practica llenguatge de marques utilitzant html, css i javascript. Pàgina de la Configuració del joc">
+    <meta name="keywords" content="Practica,html,css,javascript,llenguatge,joc,hanjie,picross,nonograma,puzle,puzzle,">
+    <meta name="author" content="Samuel Romero Marín">
+    <link rel="shortcut icon" href="imatges/logo.jpg">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Configuració</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="joc.html">Joc</a></li>
+                <li><a href="ajuda.html">Ajuda</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="contacte.html">Contacte</a></li>
+                <li><a href="configuracio.html">Configuració</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="estadistiques.html">Estadístiques</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Tamany de la quadricula-->
+        <p>Canviar tamanys</p>
+        <label for="ample">Ample</label>
+        <input type="number" id="ample">
+        <label for="altura">Altura</label>
+        <input type="number" id="altura">
+
+        <!-- Color dels quadres quan els seleccionem i color de la quadricula-->
+        <p>Canviar colors</p>
+        <label for="colorQuadre">Color dels quadres seleccionats</label>
+        <input type="color" id="colorQuadre">
+        <label for="colorQuadricula">Color de la quadricula</label>
+        <input type="color" id="colorQuadricula">
+
+        <!-- Tamany de la quadricula (que es vegi mes gran o mes petita)-->
+        <p>% zoom</p>
+        <input type="range" name="zoom" id="zoom" min="0" max="100">
+
+        <!-- Activar mode nocturn-->
+        <p>Activar el mode nocturn</p>
+        <label for="noct1">Si</label>
+        <input type="radio" name="noct" id="noct1" value="noct1">
+        <label for="noct2">No</label>
+        <input type="radio" name="noct" id="noct2" value="noct2">
+
+        <!-- Mostrar temporitzador quan estiguem fent el hanjie-->
+        <p>Activar i mostrar un temporitzador</p>
+        <label for="temp1">Si</label>
+        <input type="radio" name="temp" id="temp1" value="temp1">
+        <label for="temp2">No</label>
+        <input type="radio" name="temp" id="temp2" value="temp2">
+
+        <!-- Mostrar el numeros en tots els llocs de la quadricula (adalt, abaix, dreta i esquera) o nomes adalt i a l'esquerra-->
+        <p>Mostrar els numeros en totes les files i totes les columnes</p>
+        <label for="num1">Si</label>
+        <input type="radio" name="num" id="num1" value="num1">
+        <label for="num2">No</label>
+        <input type="radio" name="num" id="num2" value="num2">
+
+        <!-- Quan ens equivocquem el quadrat que haguem seleccionat tindrà un color especial indicant que no es correcte-->
+        <p>Avis quan ens equivoquem seleccionant</p>
+        <label for="corr1">Si</label>
+        <input type="radio" name="corr" id="corr1" value="corr1">
+        <label for="corr2">No</label>
+        <input type="radio" name="corr" id="corr2" value="corr2">
+        <button>Restaura</button>
+
+    </main>
+    <footer>
+        <section>
+            <h4>Hanjie</h4>
+            <ul>
+                <li><a href="joc.html">Joc</a></li>
+                <li><a href="ajuda.html">Ajuda</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="contacte.html">Contacte</a></li>
+                <li><a href="configuracio.html">Configuració</a></li>
+            </ul>
+        </section>
+        <section>
+            <h4>Direcció</h4>
+            <address>
+                Carrer Cabana, 31. <br>
+                Pont d'inca, Marratxí. <br>
+                Teléfon: 971 60 09 86 <br>
+                Fax: 971 79 48 09 <br>
+                Email: <a href="escola@esliceu.com">escola@esliceu.com</a>
+            </address>
+        </section>
+        <section>
+            <span>&copy; 2019 Samuel Romero Marín</span>
+        </section>
+    </footer>
+</body>
+
+
+</html>
