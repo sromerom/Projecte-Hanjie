@@ -10,6 +10,7 @@
     <meta name="author" content="Samuel Romero Marín">
     <link rel="shortcut icon" href="imatges/logo.jpg">
     <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/configuracio.css">
     <title>Configuració</title>
 </head>
 
@@ -29,52 +30,66 @@
         </nav>
     </header>
     <main>
-        <!-- Tamany de la quadricula-->
-        <p>Canviar tamanys</p>
-        <label for="ample">Ample</label>
-        <input type="number" id="ample">
-        <label for="altura">Altura</label>
-        <input type="number" id="altura">
+        <h2>Configuracions</h2>
+        <div>
+            <!-- Tamany de la quadricula-->
+            <p>Canviar tamanys</p>
+            <label for="ample">Ample</label>
+            <input type="number" id="ample">
+            <label for="altura">Altura</label>
+            <input type="number" id="altura">
+        </div>
+        <div>
+            <!-- Color dels quadres quan els seleccionem i color de la quadricula-->
+            <p>Canviar colors</p>
+            <label for="colorQuadre">Color dels quadres seleccionats</label>
+            <input type="color" id="colorQuadre">
+            <label for="colorQuadricula">Color de la quadricula</label>
+            <input type="color" id="colorQuadricula">
+        </div>
 
-        <!-- Color dels quadres quan els seleccionem i color de la quadricula-->
-        <p>Canviar colors</p>
-        <label for="colorQuadre">Color dels quadres seleccionats</label>
-        <input type="color" id="colorQuadre">
-        <label for="colorQuadricula">Color de la quadricula</label>
-        <input type="color" id="colorQuadricula">
+        <div>
+            <!-- Tamany de la quadricula (que es vegi mes gran o mes petita)-->
+            <p>% zoom</p>
+            <input type="range" name="zoom" id="zoom" min="0" max="100">
+        </div>
+        <div>
+            <!-- Activar mode nocturn-->
+            <p>Activar el mode nocturn</p>
+            <label for="noct1">Si</label>
+            <input type="radio" name="noct" id="noct1" value="noct1">
+            <label for="noct2">No</label>
+            <input type="radio" name="noct" id="noct2" value="noct2">
+        </div>
 
-        <!-- Tamany de la quadricula (que es vegi mes gran o mes petita)-->
-        <p>% zoom</p>
-        <input type="range" name="zoom" id="zoom" min="0" max="100">
 
-        <!-- Activar mode nocturn-->
-        <p>Activar el mode nocturn</p>
-        <label for="noct1">Si</label>
-        <input type="radio" name="noct" id="noct1" value="noct1">
-        <label for="noct2">No</label>
-        <input type="radio" name="noct" id="noct2" value="noct2">
+        <div>
+            <!-- Mostrar temporitzador quan estiguem fent el hanjie-->
+            <p>Activar i mostrar un temporitzador</p>
+            <label for="temp1">Si</label>
+            <input type="radio" name="temp" id="temp1" value="temp1">
+            <label for="temp2">No</label>
+            <input type="radio" name="temp" id="temp2" value="temp2">
+        </div>
 
-        <!-- Mostrar temporitzador quan estiguem fent el hanjie-->
-        <p>Activar i mostrar un temporitzador</p>
-        <label for="temp1">Si</label>
-        <input type="radio" name="temp" id="temp1" value="temp1">
-        <label for="temp2">No</label>
-        <input type="radio" name="temp" id="temp2" value="temp2">
+        <div>
+            <!-- Mostrar el numeros en tots els llocs de la quadricula (adalt, abaix, dreta i esquera) o nomes adalt i a l'esquerra-->
+            <p>Mostrar els numeros en totes les files i totes les columnes</p>
+            <label for="num1">Si</label>
+            <input type="radio" name="num" id="num1" value="num1">
+            <label for="num2">No</label>
+            <input type="radio" name="num" id="num2" value="num2">
+        </div>
 
-        <!-- Mostrar el numeros en tots els llocs de la quadricula (adalt, abaix, dreta i esquera) o nomes adalt i a l'esquerra-->
-        <p>Mostrar els numeros en totes les files i totes les columnes</p>
-        <label for="num1">Si</label>
-        <input type="radio" name="num" id="num1" value="num1">
-        <label for="num2">No</label>
-        <input type="radio" name="num" id="num2" value="num2">
-
-        <!-- Quan ens equivocquem el quadrat que haguem seleccionat tindrà un color especial indicant que no es correcte-->
-        <p>Avis quan ens equivoquem seleccionant</p>
-        <label for="corr1">Si</label>
-        <input type="radio" name="corr" id="corr1" value="corr1">
-        <label for="corr2">No</label>
-        <input type="radio" name="corr" id="corr2" value="corr2">
-        <button>Restaura</button>
+        <div>
+            <!-- Quan ens equivocquem el quadrat que haguem seleccionat tindrà un color especial indicant que no es correcte-->
+            <p>Avis quan ens equivoquem seleccionant</p>
+            <label for="corr1">Si</label>
+            <input type="radio" name="corr" id="corr1" value="corr1">
+            <label for="corr2">No</label>
+            <input type="radio" name="corr" id="corr2" value="corr2">
+        </div>
+        <button id="but">Restaura</button>
 
     </main>
     <footer>

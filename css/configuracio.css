@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+main p {
+    font-size: 1.5em;
+    margin-top: 2%;
+}
+
+main div {
+    flex-basis: 100%;
+}
+
+#but {
+    flex-basis: 100%;
+    margin-top: 2%;
+    margin-bottom: 10%;
+
+    width: 100%;
+	border-bottom: none;
+	background-color: #7aadff;
+    color: white;
+    transition: background-color 0.6s ease-out;
+}
+
+#but:hover {
+    background-color:#37ce55;
+}

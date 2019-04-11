@@ -1,0 +1,72 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.wrapper section h2 {
+    border-top: 3px solid black;
+    padding-bottom: 2%;
+    flex-basis: 100%;
+ }
+
+.wrapper section:nth-of-type(1), .wrapper section:nth-of-type(2) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    padding: 5%;
+
+}
+
+.wrapper section:nth-of-type(3), .wrapper section:nth-of-type(4) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+
+}
+
+.wrapper p {
+    padding-bottom: 3%;
+    flex-basis: 100%;
+}
+.wrapper img {
+    width: 300px;
+    height: 300px;
+    float: right;
+}
+
+.wrapper section iframe {
+    width: 50%;
+    height: 400px;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+/*Fons diferent*/
+
+#wrap {
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 400px;
+  }
+
+  .parallax-img {
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+   
+  .parallax-img {
+    background-image: url(../imatges/hanjie9.gif);
+  }
