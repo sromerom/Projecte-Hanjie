@@ -1,36 +1,124 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+/****** Pagina congiguració del joc ******/
 
 main p {
     font-size: 1.5em;
-    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-main div {
-    flex-basis: 100%;
+main {
+    /* Flex pare*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-#but {
-    flex-basis: 100%;
-    margin-top: 2%;
-    margin-bottom: 10%;
+main>h2 {
+     /*Flex fill*/
+     flex-basis: 100%;
 
-    width: 100%;
+    /* Flex pare*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+main>div {
+    /*Flex fill*/
+    flex-basis: 33.333%;
+
+    /* Flex pare*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+
+    border: 6px solid black;
+    margin: 2%;
+    padding: 1%;
+    transition: background-color 0.3s ease-out;
+}
+main>div>input {
+    border-radius: 5%;
+    border: none;
+    border-bottom: solid black;
+}
+
+
+main>button {
+    /*Flex fill*/
+    flex-basis: 100%;
+
+    padding-bottom: 1%;
+    padding-top: 1%;
+    margin-bottom: 2%;
 	border-bottom: none;
 	background-color: #7aadff;
     color: white;
     transition: background-color 0.6s ease-out;
 }
 
-#but:hover {
+/*Transicio boto*/
+main>button:hover {
     background-color:#37ce55;
 }
+
+/*Transicio de colors en els div*/
+main>div:nth-of-type(1):hover {
+    background-color:#f14e4e;
+}
+
+main>div:nth-of-type(2):hover {
+    background-color:#f1bb4e;
+}
+
+main>div:nth-of-type(3):hover {
+    background-color:#84f14e;
+}
+main>div:nth-of-type(4):hover {
+    background-color:#4ef18f;
+}
+
+main>div:nth-of-type(5):hover {
+    background-color:#4e9af1;
+}
+
+main>div:nth-of-type(6):hover {
+    background-color:#9a4ef1;
+}
+
+main>div:nth-of-type(7):hover {
+    background-color:#f14ebd;
+}
+
+/*Barra rang del form modificada*/
+.rangValors {
+    width: 100%;
+}
+  
+.rangValors {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.rangValors:hover {
+    opacity: 1;
+}
+  
+.rangValors::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #b399c4;
+    cursor: pointer;
+}
+  

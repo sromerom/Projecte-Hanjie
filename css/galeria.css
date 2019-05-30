@@ -1,13 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/****** Galeria ******/
 
 main>section {
     width: 65%;
     margin: auto;
 }
+
 main>section ul{
     /* Flex pare */
     display: flex;
@@ -16,8 +13,6 @@ main>section ul{
     }
     
 main>section ul li{
-    /* Flex fill */
-    
     /* Flex pare */
     display: flex;
     flex-direction: row;
@@ -36,6 +31,9 @@ main>section ul li {
     border: 3px solid #000;
     margin: 6px;
 }
+
+/****** Efecte galeria ******/
+
 main>section ul li:hover {
     overflow: hidden;
 }

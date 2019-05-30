@@ -1,0 +1,76 @@
+/****** Formulari ******/
+main>section {
+    border-top: solid black;
+    border-bottom: solid black;
+    width: 35%;
+    margin: auto;
+    background-color: white;
+}
+
+main>section>p {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+main>section>h2 {
+    padding-top: 5%;
+    text-align: center;
+}
+.formulari {
+    /*Flex pare*/
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.formulari>input {
+    /* Flex fill */
+    flex-basis: 100%;
+
+	padding: 3.5%;
+	border: none;
+    border-bottom: solid black;
+}
+
+.formulari>input:focus {
+    border-bottom: solid #b399c4;
+}
+.formulari>textarea {
+    max-width: 100%;
+    min-width: 100%;
+    background-color: #e8e8e8;
+    border-radius: 2%;
+    border: 1px solid #000000;
+    
+}
+
+.formulari>textarea:focus {
+    transition: background-color 1s ease;
+    background-color: white;
+}
+
+/*Estetica botó*/
+.buttonForm {
+    /*Flex fill*/
+    flex-basis: 100%;
+
+    margin-top: 2%;
+    margin-bottom: 10%;
+    width: 100%;
+	border-bottom: none;
+	background-color: #7aadff;
+    color: white;
+    transition: background-color 0.6s ease-out;
+}
+
+.buttonForm:hover {
+    background-color:#37ce55;
+}
+.requerit {
+    color: red;
+    font-weight: bold;
+}

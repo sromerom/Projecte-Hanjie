@@ -1,10 +1,6 @@
-* {
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/****** Contingut main de pàgina ajuda ******/
 .wrapper {
+    /* Flex pare */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
@@ -12,31 +8,42 @@
 }
 
 .wrapper section h2 {
+    /* Flex fill */
+    flex-basis: 100%;
+
     border-top: 3px solid black;
     padding-bottom: 2%;
-    flex-basis: 100%;
  }
 
 .wrapper section:nth-of-type(1), .wrapper section:nth-of-type(2) {
+    /* Flex Fill */
+    flex-basis: 50%;
+
+    /* Flex Pare */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-basis: 50%;
+
     padding: 5%;
 
 }
 
 .wrapper section:nth-of-type(3), .wrapper section:nth-of-type(4) {
+    /*Flex fill*/
+    flex-basis: 100%;
+
+    /* Flex pare*/
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-basis: 100%;
 
 }
 
 .wrapper p {
-    padding-bottom: 3%;
+    /*Flex fill*/
     flex-basis: 100%;
+
+    padding-bottom: 3%;
 }
 .wrapper img {
     width: 300px;
@@ -46,27 +53,28 @@
 
 .wrapper section iframe {
     width: 50%;
-    height: 400px;
+    height: 600px;
     margin: auto;
     margin-bottom: 5%;
 }
 
-/*Fons diferent*/
 
-#wrap {
+/****** Efecte Background ******/
+
+#wrapSection {
     width: 100%;
     height: 100vh;
     padding-bottom: 400px;
-  }
+}
 
-  .parallax-img {
+.backgroundParalel {
     height: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
    
-  .parallax-img {
+.backgroundParalel {
     background-image: url(../imatges/hanjie9.gif);
-  }
+}
