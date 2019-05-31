@@ -10,37 +10,48 @@ canvas.addEventListener("click", function (ev) {
     taulell.seleccionarCasella(x, y);
 })
 
-//ctx.fillStyle = "orange";
-//ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = "orange";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-var numeros = [1, 5, 6, 3, 1, 6];
-var numeros2 = [
-    [1, 2, 3, 4, 5, 6],
-    [7, 8, 9, 10, 11, 12]
-];
 
+var numeros2;
+
+var dificultat = 8;
 var files = 0;
 var columnes = 0;
-var dificultat = 8;
 var widthCanvasTotal = canvas.width;
 var heightCanvasTotal = canvas.height;
 
+if (dificultat == 8) { // 6
+    numeros2 = [
+        [1, 2, 3, 4, 5, 6, 7, 8],
+        [9, 10, 11, 12, 13, 14, 15, 16],
+        [9, 10, 11, 12, 13, 14, 15, 16]
+    ];
+} else if (dificultat == 16) { //
+    numeros2 = [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
+        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
+        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
+        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
+        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32]
+    ];
+} else if (dificultat == 24) {
+    numeros2 = [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+    ];
+}
 console.log(widthCanvasTotal);
 console.log(heightCanvasTotal);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 for (var i = 200; i < canvas.height; i += 50) {
@@ -55,84 +66,62 @@ var taulell = {
     height: 400,
     init: function () {
         numeroQuadrats = dificultat;
-        var widthBox = 400 / numeroQuadrats;
-        var heightBox = 400 / numeroQuadrats;
+        var widthBox = this.width / numeroQuadrats;
+        var heightBox = this.height / numeroQuadrats;
         for (var i = 0; i < numeroQuadrats; i++) {
             for (var j = 0; j < numeroQuadrats; j++) {
                 if ((i + j) % 2 === 0) {
                     var colorCasella = 'white';
                     var colorLletra = 'black'
                 }
-                this.caselles.push(new Casella(i * widthBox + 200, j * heightBox + 200, widthBox, heightBox, colorCasella, colorLletra, (j * numeroQuadrats) + i + 1))
+                this.caselles.push(new Casella(i * widthBox + 150, j * heightBox + 150, widthBox, heightBox, colorCasella, colorLletra, (j * numeroQuadrats) + i + 1))
             }
         }
         this.pintar();
 
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     initExterior: function () {
         numeroQuadrats = dificultat;
-        widthBox = 400 / numeroQuadrats;
-        heightBox = 400 / numeroQuadrats;
+        widthBox = this.width / numeroQuadrats;
+        heightBox = this.height / numeroQuadrats;
 
 
-        for (var j = heightCanvasTotal - 300; j > 0; j -= heightBox, columnes++) {
+        for (var j = heightCanvasTotal - this.height; j > 0; j -= heightBox, columnes++) {
             files = 0;
-            for (var i = 500; i - 200> 0; i -= 50, files++) {
+            for (var i = widthCanvasTotal; i - 150> 0; i -= widthBox, files++) {
                 ctx.fillStyle = "black";
                 ctx.strokeRect(i - widthBox, j - heightBox, 0, heightBox);
-                ctx.font = "25px Arial";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                ctx.fillStyle = "red";
+                
+                if (columnes < numeros2.length) {
+                    ctx.font = (widthBox / 1.5) + "px Arial";
+                    ctx.textBaseline = "middle";
+                    ctx.textAlign= "center";
+                    ctx.fillStyle = "white";
+                    ctx.fillText(numeros2[columnes][files], i - (widthBox / 2) , j - (heightBox / 2));
+                }
             }
         }
-        for (var j = 450; j - 150 > 0; j-=50) {
-            for (var i = 200; i > 0; i -= 50) {
+        
+
+        columnes = 0;
+        files = 0;
+
+        for (var i = widthCanvasTotal - this.width; i > 0; i-= widthBox, columnes++) {
+            files = 0;
+            for (var j = heightCanvasTotal; j - 150 > 0; j -= widthBox, files++) {
                 ctx.fillStyle = "black";
-                ctx.strokeRect(i - 50, j, 50, 0);
-                ctx.font = "25px Arial";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                ctx.fillStyle = "red";
+                ctx.strokeRect(i - widthBox, j - heightBox, widthBox, 0);
+
+                if (columnes < numeros2.length) {
+                    ctx.font = (widthBox / 1.5) + "px Arial";
+                    ctx.textBaseline = "middle";
+                    ctx.textAlign= "center";
+                    ctx.fillStyle = "white";
+                    ctx.fillText(numeros2[columnes][files], i - (widthBox / 2) , j - (heightBox / 2));
+                }
             }
         }
-
-    
-
-        /*
-for (var i = 200; i < canvas.height; i += 50) {
-    ctx.moveTo(0, i);
-    ctx.lineTo(canvas.height, i);
-    ctx.stroke();
-}
-*/
     },
 
 
@@ -191,7 +180,7 @@ function Casella(x1, y1, width, height, background, colorValor, valor) {
     }
 }
 
-
+console.log(taulell.caselles);
 taulell.init();
 taulell.initExterior();
 
