@@ -1,0 +1,22 @@
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+main h2 {
+    flex-basis: 100%;
+}
+
+#columnchart_values {
+    flex-basis: 50%;
+}
+
+main section {
+    flex-basis: 50%;
+}
+
+
+

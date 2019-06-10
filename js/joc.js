@@ -10,44 +10,96 @@ canvas.addEventListener("click", function (ev) {
     taulell.seleccionarCasella(x, y);
 })
 
-ctx.fillStyle = "orange";
+if (localStorage.getItem("eleccioModeNocturn") === "si") {
+    document.querySelector('body').style.backgroundColor = "black";
+    document.querySelector('main').style.backgroundColor = "#434951";
+}
+
+    var iniciTemp = false;
+
+if (localStorage.getItem("colorExterior") === null) {
+    ctx.fillStyle = "orange";
+} else {
+    ctx.fillStyle = localStorage.getItem("colorExterior");
+}
+
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 
-var numeros2;
+var numerosColumnes;
+var numerosFiles;
+var solucio;
+var totalSelec;
 
-var dificultat = 8;
+
+if (localStorage.getItem("radioDificultat") === null) {
+    var dificultatElegida = "facil";
+    document.querySelector("#rellotge").innerHTML = "Nivell elegit: Fàcil";
+} else {
+    var dificultatElegida = localStorage.getItem("radioDificultat");
+    document.querySelector("#rellotge").innerHTML = "Nivell elegit: " + dificultatElegida;
+}
+
+var dificultat;
 var files = 0;
 var columnes = 0;
 var widthCanvasTotal = canvas.width;
 var heightCanvasTotal = canvas.height;
 
-if (dificultat == 8) { // 6
-    numeros2 = [
-        [1, 2, 3, 4, 5, 6, 7, 8],
-        [9, 10, 11, 12, 13, 14, 15, 16],
-        [9, 10, 11, 12, 13, 14, 15, 16]
+if (dificultatElegida == "facil") { // 6
+    dificultat = 8;
+    solucio = 1062;
+    totalSelec = 31;
+    numerosColumnes = [
+        [3, 4, 3, 4, 8, 2, 4, 1],
+        [99, 99, 99, 99, 99, 1, 99, 1]
     ];
-} else if (dificultat == 16) { //
-    numeros2 = [
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
-        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
-        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
-        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32],
-        [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 , 29, 30, 31, 32]
+
+    numerosFiles = [
+        [1, 4, 5, 8, 1, 1, 3, 1],
+        [1, 99, 99, 99, 4, 2, 99, 99]
     ];
-} else if (dificultat == 24) {
-    numeros2 = [
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+} else if (dificultatElegida == "intermig") { //
+    dificultat = 16;
+    solucio = 14156;
+    totalSelec = 107;
+    numerosColumnes = [
+        [3, 4, 5, 4, 5, 6, 3, 2, 4, 8, 8, 2, 4, 2, 1, 0],
+        [99, 99, 99, 99, 99, 99, 2, 2, 2, 2, 2, 6, 6, 4, 99, 99],
+        [99, 99, 99, 99, 99, 99, 1, 5, 6, 3, 1, 2, 99, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 1, 99, 99, 99, 99]
+    ];
+
+    numerosFiles = [
+        [24, 6, 2, 10, 8, 5, 7, 3, 1, 5, 3, 5, 7, 4, 5, 3, 3],
+        [99, 99, 3, 99, 2, 4, 3, 3, 8, 99, 99, 99, 99, 3, 99, 99],
+        [99, 99, 99, 99, 99, 2, 2, 3, 99, 99, 99, 99, 99, 99, 99, 99]
+    ];
+} else if (dificultatElegida == "dificil") {
+    dificultat = 24;
+    solucio = 82373;
+    totalSelec = 287;
+    numerosColumnes = [
+        [24, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 24],
+        [99, 1, 12, 11, 1, 8, 1, 1, 1, 8, 5, 5, 6, 2, 1, 1, 1, 1, 1, 1, 1, 12, 1, 99],
+        [99, 99, 1, 2, 5, 2, 3, 2, 4, 5, 1, 1, 1, 1, 5, 7, 7, 4, 3, 5, 2, 1, 99, 99],
+        [99, 99, 99, 1, 1, 1, 4, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 2, 2, 2, 2, 99, 99, 99],
+        [99, 99, 99, 99, 99, 1, 1, 1, 1, 99, 6, 1, 1, 1, 2, 4, 2, 1, 2, 1, 1, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 1, 1, 99, 1, 2, 1, 1, 3, 1, 1, 1, 1, 1, 99, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 99, 99, 1, 99, 1, 1, 1, 1, 99, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 1, 1, 99, 99, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 11, 99, 99, 99, 99, 99, 99]
+    ];
+
+    numerosFiles = [
+        [24, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 24],
+        [99, 1, 4, 2, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 20, 1, 3, 2, 2, 4, 1, 99],
+        [99, 99, 1, 1, 4, 6, 6, 1, 1, 1, 1, 1, 2, 3, 2, 5, 1, 3, 5, 1, 3, 1, 99, 99],
+        [99, 99, 99, 1, 1, 1, 1, 4, 5, 5, 3, 2, 2, 1, 2, 1, 99, 2, 6, 2, 1, 99, 99, 99],
+        [99, 99, 99, 99, 1, 1, 1, 4, 3, 6, 1, 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 1, 1, 1, 4, 1, 5, 1, 1, 99, 99, 1, 99, 1, 99, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 1, 1, 1, 2, 3, 1, 1, 1, 99, 99, 1, 99, 99, 99, 99, 99, 99],
+        [99, 99, 99, 99, 99, 99, 99, 1, 1, 99, 1, 1, 1, 1, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99]
     ];
 }
 console.log(widthCanvasTotal);
@@ -60,6 +112,7 @@ for (var i = 200; i < canvas.height; i += 50) {
     ctx.stroke();
 }
 */
+
 var taulell = {
     caselles: [],
     width: 400,
@@ -70,11 +123,20 @@ var taulell = {
         var heightBox = this.height / numeroQuadrats;
         for (var i = 0; i < numeroQuadrats; i++) {
             for (var j = 0; j < numeroQuadrats; j++) {
-                if ((i + j) % 2 === 0) {
-                    var colorCasella = 'white';
-                    var colorLletra = 'black'
+
+                if (localStorage.getItem("colorSeleccio") === null) {
+                    var colorCasella = "grey";
+                } else {
+                    var colorCasella = localStorage.getItem("colorSeleccio");
                 }
-                this.caselles.push(new Casella(i * widthBox + 150, j * heightBox + 150, widthBox, heightBox, colorCasella, colorLletra, (j * numeroQuadrats) + i + 1))
+
+                if (localStorage.getItem("colorQuadricula") === null) {
+                    var colorBackground = "white";
+                } else {
+                    var colorBackground = localStorage.getItem("colorQuadricula")
+                }
+
+                this.caselles.push(new Casella(i * widthBox + 150, j * heightBox + 150, widthBox, heightBox, colorBackground, colorCasella, (j * numeroQuadrats) + i))
             }
         }
         this.pintar();
@@ -85,51 +147,72 @@ var taulell = {
         numeroQuadrats = dificultat;
         widthBox = this.width / numeroQuadrats;
         heightBox = this.height / numeroQuadrats;
-
+        if (localStorage.getItem("colorNumeros") === null) {
+            var colorLletra = "white";
+        } else {
+            var colorLletra = localStorage.getItem("colorNumeros");
+        }
 
         for (var j = heightCanvasTotal - this.height; j > 0; j -= heightBox, columnes++) {
             files = 0;
-            for (var i = widthCanvasTotal; i - 150> 0; i -= widthBox, files++) {
+            for (var i = widthCanvasTotal; i - 150 > 0; i -= widthBox, files++) {
                 ctx.fillStyle = "black";
                 ctx.strokeRect(i - widthBox, j - heightBox, 0, heightBox);
-                
-                if (columnes < numeros2.length) {
+
+                if (columnes < numerosColumnes.length) {
                     ctx.font = (widthBox / 1.5) + "px Arial";
                     ctx.textBaseline = "middle";
-                    ctx.textAlign= "center";
-                    ctx.fillStyle = "white";
-                    ctx.fillText(numeros2[columnes][files], i - (widthBox / 2) , j - (heightBox / 2));
+                    ctx.textAlign = "center";
+                    ctx.fillStyle = colorLletra;
+                    if (numerosColumnes[columnes][files] == 99) {
+                    } else {
+                        ctx.fillText(numerosColumnes[columnes][files], i - (widthBox / 2), j - (heightBox / 2));
+                    }
                 }
             }
         }
-        
+
 
         columnes = 0;
         files = 0;
 
-        for (var i = widthCanvasTotal - this.width; i > 0; i-= widthBox, columnes++) {
+        for (var i = widthCanvasTotal - this.width; i > 0; i -= widthBox, columnes++) {
             files = 0;
             for (var j = heightCanvasTotal; j - 150 > 0; j -= widthBox, files++) {
                 ctx.fillStyle = "black";
                 ctx.strokeRect(i - widthBox, j - heightBox, widthBox, 0);
 
-                if (columnes < numeros2.length) {
+                if (columnes < numerosFiles.length) {
                     ctx.font = (widthBox / 1.5) + "px Arial";
                     ctx.textBaseline = "middle";
-                    ctx.textAlign= "center";
-                    ctx.fillStyle = "white";
-                    ctx.fillText(numeros2[columnes][files], i - (widthBox / 2) , j - (heightBox / 2));
+                    ctx.textAlign = "center";
+                    ctx.fillStyle = colorLletra;
+
+                    if (numerosFiles[columnes][files] == 99) {
+                    } else {
+                        ctx.fillText(numerosFiles[columnes][files], i - (widthBox / 2), j - (heightBox / 2));
+                    }
                 }
             }
         }
     },
+    reinit: function () {
+        alert("Reiniciant joc...");
+        setTimeout(function () {
+            for (var i = 0; i < taulell.caselles.length; i++) {
+                if (taulell.caselles[i].marcat) {
+                    console.log("Ha entrado")
+                    taulell.caselles[i].marcat = false;
 
-
-
-
-
-
-
+                }
+            }
+            taulell.caselles = [];
+            width = 400;
+            height = 400;
+            taulell.init();
+            taulell.initExterior();
+        }, 3000);
+    },
 
 
 
@@ -139,13 +222,23 @@ var taulell = {
         }
     },
     seleccionarCasella: function (x, y) {
-        console.log("Ha entrada en seleccionar casella")
+        console.log("Ha entrada en seleccionar casella");
+        if (localStorage.getItem("temporitzador") === "si") {
+            if (!iniciTemp) {
+                play();
+                iniciTemp = true;
+            }
+        }
         for (var i = 0; i < this.caselles.length; i++) {
             if (this.caselles[i].x1 <= x && this.caselles[i].x1 + this.caselles[i].width >= x &&
                 this.caselles[i].y1 <= y && this.caselles[i].y1 + this.caselles[i].height >= y) {
                 this.caselles[i].selecciona();
+                comprovaMarcades(this.caselles);
+
             }
         }
+
+
     }
 };
 
@@ -164,23 +257,140 @@ function Casella(x1, y1, width, height, background, colorValor, valor) {
         this.pintar();
     };
     this.pintar = function () {
+
+        if (this.marcat) {
+            ctx.fillStyle = this.colorValor;
+        } else {
+            ctx.fillStyle = this.background;
+        }
+
         ctx.beginPath();
         ctx.lineWidth = "3";
         ctx.strokeStyle = "black";
         ctx.rect(this.x1, this.y1, this.width, this.height);
-
-        if (this.marcat) {
-            ctx.fillStyle = "#FF0000";
-        } else {
-            ctx.fillStyle = "white";
-        }
         ctx.fillRect(this.x1, this.y1, this.width, this.height);
         ctx.stroke();
 
     }
 }
 
-console.log(taulell.caselles);
+function comprovaMarcades(caselles) {
+    var marcades = 0;
+    var valueTotal = 0;
+    for (var i = 0; i < caselles.length; i++) {
+        if (caselles[i].marcat) {
+            marcades++;
+            valueTotal = valueTotal + caselles[i].valor;
+            console.log(marcades);
+            console.log(valueTotal);
+        }
+    }
+    if (marcades == totalSelec && valueTotal == solucio) {
+        alert("Has guanyat!!!!!!!")
+        var acabatsFacil;
+        var acabatsIntermig;
+        var acabatsDificil;
+        pause();
+        var tempsFet = document.querySelector("#rellotge").innerHTML;
+        if (localStorage.getItem("tempsRealitzat") === null) {
+            localStorage.setItem("primerTempsRealitzat", true);
+        }
+
+        localStorage.setItem("tempsRealitzat", tempsFet);
+        stop();
+        iniciTemp = false;
+        console.log(tempsFet)
+
+
+        if (localStorage.getItem("GuanyadesFacil") === null) {
+            acabatsFacil = 0;
+            console.log("Primera vegada: " + acabatsFacil)
+        } else {
+            acabatsFacil = parseInt(localStorage.getItem("GuanyadesFacil"));
+            console.log("Total facil: " + acabatsFacil)
+        }
+
+
+
+        if (localStorage.getItem("GuanyadesIntermig") === null) {
+            acabatsIntermig = 0;
+        } else {
+            acabatsIntermig = localStorage.getItem("GuanyadesIntermig");
+        }
+
+
+        if (localStorage.getItem("GuanyadesDificil") === null) {
+            acabatsDificil = 0;
+        } else {
+            acabatsDificil = localStorage.getItem("GuanyadesDificil");
+        }
+
+
+        if (dificultatElegida == "facil") {
+            localStorage.setItem("GuanyadesFacil", parseInt(acabatsFacil + 1));
+        } else if (dificultatElegida == "intermig") {
+            localStorage.setItem("GuanyadesIntermig", parseInt(acabatsIntermig + 1));
+        } else {
+            localStorage.setItem("GuanyadesDificil", parseInt(acabatsDificil + 1));
+        }
+        taulell.reinit();
+    }
+
+}
+
 taulell.init();
 taulell.initExterior();
+console.log(taulell.caselles);
+
+
+//Temporitzador
+
+var timer;
+
+var temps = {
+    hores: 0,
+    minuts: 0,
+    segons: 0
+}
+function play() {
+    if (!timer) {
+        timer = setInterval(function () {
+            temps.segons++;
+
+            if (temps.segons === 60) {
+                temps.segons = 0;
+                temps.minuts++;
+            }
+
+            if (temps.minuts === 60) {
+                temps.minuts = 0;
+                temps.hores++;
+            }
+
+            paint(temps);
+        }, 1000)
+    }
+}
+
+function pause() {
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
+}
+
+function stop() {
+    pause();
+
+    temps = {
+        hores: 0,
+        minuts: 0,
+        segons: 0
+    }
+    paint(temps);
+}
+
+function paint(temps) {
+    document.querySelector('#rellotge').innerHTML = temps.hores + ":" + temps.minuts + ":" + temps.segons;
+}
 

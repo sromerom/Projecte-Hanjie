@@ -75,22 +75,10 @@ main>div:nth-of-type(2):hover {
 }
 
 main>div:nth-of-type(3):hover {
-    background-color:#84f14e;
-}
-main>div:nth-of-type(4):hover {
     background-color:#4ef18f;
 }
-
-main>div:nth-of-type(5):hover {
-    background-color:#4e9af1;
-}
-
-main>div:nth-of-type(6):hover {
+main>div:nth-of-type(4):hover {
     background-color:#9a4ef1;
-}
-
-main>div:nth-of-type(7):hover {
-    background-color:#f14ebd;
 }
 
 /*Barra rang del form modificada*/

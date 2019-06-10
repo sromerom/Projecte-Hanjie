@@ -9,9 +9,9 @@
     <meta name="author" content="Samuel Romero Marín">
     <link rel="shortcut icon" href="imatges/logo.jpg">
     <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/estadistiques.css">
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="js/estadistiques.js"></script>
     <title>Estadistiques</title>
 </head>
 
@@ -34,7 +34,21 @@
         <!-- Possible pàgina per la recolecció de estadistiques (Vegades acabat el tauler, vegades que s'ha abandonat, millor temps, ultim temps fet, quantes vegades hem jugat etc ... )-->
         <!-- (No es segur que s'acabi fent)-->
         <!--Div that will hold the pie chart-->
-        <<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+        <h2>Estadistiques</h2>
+        <div id="columnchart_values"></div>
+        <section>
+            <p>Partides acabades en total:</p>
+            <div id="totalAcabades">0</div>
+            <p>Millor Temps realitzat en fàcil:</p>
+            <div id="millorTempsFacil">0</div>
+            <p>Millor Temps realitzat en intermig:</p>
+            <div id="millorTempsIntermig">0</div>
+            <p>Millor Temps realitzat en difícil:</p>
+            <div id="millorTempsDificil">0</div>
+            <p>Anterior temps:</p>
+            <div id="anteriorTemps">0</div>
+        </section>
+        <script src="js/estadistiques.js"></script>
     </main>
     <footer>
         <section>

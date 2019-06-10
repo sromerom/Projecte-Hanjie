@@ -33,11 +33,18 @@
         <h2>Configuracions</h2>
         <div>
             <!-- Tamany de la quadricula-->
-            <p>Canviar tamanys</p>
+            <!--
+                <p>Canviar tamanys</p>
             <label for="ample">Ample</label>
             <input type="number" id="ample">
             <label for="altura">Altura</label>
             <input type="number" id="altura">
+            
+            -->
+            <p>Canviar tamanys</p>
+            <input type="radio" id="rad1" name="dificultat" value="facil" onclick="dificultatValue(this.value)"> Fàcil<br>
+            <input type="radio" id="rad2" name="dificultat" value="intermig" onclick="dificultatValue(this.value)"> Intermig<br>
+            <input type="radio" id="rad3" name="dificultat" value="dificil" onclick="dificultatValue(this.value)"> Difícil<br>
         </div>
         <div>
             <!-- Color dels quadres quan els seleccionem i color de la quadricula-->
@@ -46,20 +53,19 @@
             <input type="color" id="colorQuadre">
             <label for="colorQuadricula">Color de la quadricula</label>
             <input type="color" id="colorQuadricula">
+            <label for="colorExterior">Color de la part exterior del Hanjie</label>
+            <input type="color" id="colorExterior">
+            <label for="colorNumeros">Color del numeros</label>
+            <input type="color" id="colorNumeros">
         </div>
 
-        <div>
-            <!-- Tamany de la quadricula (que es vegi mes gran o mes petita)-->
-            <p>% zoom</p>
-            <input type="range" class="rangValors" name="zoom" id="zoom" min="0" max="100">
-        </div>
         <div>
             <!-- Activar mode nocturn-->
             <p>Activar el mode nocturn</p>
             <label for="noct1">Si</label>
-            <input type="radio" name="noct" id="noct1" value="noct1">
+            <input type="radio" name="noct" id="noct1" value="si" onclick="modeNocturn(this.value)">
             <label for="noct2">No</label>
-            <input type="radio" name="noct" id="noct2" value="noct2">
+            <input type="radio" name="noct" id="noct2" value="no" onclick="modeNocturn(this.value)">
         </div>
 
 
@@ -67,29 +73,11 @@
             <!-- Mostrar temporitzador quan estiguem fent el hanjie-->
             <p>Activar i mostrar un temporitzador</p>
             <label for="temp1">Si</label>
-            <input type="radio" name="temp" id="temp1" value="temp1">
+            <input type="radio" name="temp" id="temp1" value="si" onclick="temporitzador(this.value)">
             <label for="temp2">No</label>
-            <input type="radio" name="temp" id="temp2" value="temp2">
+            <input type="radio" name="temp" id="temp2" value="no" onclick="temporitzador(this.value)">
         </div>
-
-        <div>
-            <!-- Mostrar el numeros en tots els llocs de la quadricula (adalt, abaix, dreta i esquera) o nomes adalt i a l'esquerra-->
-            <p>Mostrar els numeros en totes les files i totes les columnes</p>
-            <label for="num1">Si</label>
-            <input type="radio" name="num" id="num1" value="num1">
-            <label for="num2">No</label>
-            <input type="radio" name="num" id="num2" value="num2">
-        </div>
-
-        <div>
-            <!-- Quan ens equivocquem el quadrat que haguem seleccionat tindrà un color especial indicant que no es correcte-->
-            <p>Avis quan ens equivoquem seleccionant</p>
-            <label for="corr1">Si</label>
-            <input type="radio" name="corr" id="corr1" value="corr1">
-            <label for="corr2">No</label>
-            <input type="radio" name="corr" id="corr2" value="corr2">
-        </div>
-        <button id="but">Restaura</button>
+        <button id="but" onclick="restaurar()">Restaura</button>
 
     </main>
     <footer>
@@ -119,6 +107,7 @@
             <span>&copy; 2019 Samuel Romero Marín</span>
         </section>
     </footer>
+    <script src="js/configuracio.js"></script>
 </body>
 
 
