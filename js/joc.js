@@ -6,16 +6,16 @@ var bounding = canvas.getBoundingClientRect();
 canvas.addEventListener("click", function (ev) {
     var x = ev.clientX - bounding.left;
     var y = ev.clientY - bounding.top;
-    console.log("HE FET CLICK!!", x, y);
     taulell.seleccionarCasella(x, y);
 })
 
+//Carregam el mode nocturn
 if (localStorage.getItem("eleccioModeNocturn") === "si") {
     document.querySelector('body').style.backgroundColor = "black";
     document.querySelector('main').style.backgroundColor = "#434951";
 }
 
-    var iniciTemp = false;
+var iniciTemp = false;
 
 if (localStorage.getItem("colorExterior") === null) {
     ctx.fillStyle = "orange";
@@ -24,12 +24,6 @@ if (localStorage.getItem("colorExterior") === null) {
 }
 
 ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-
-var numerosColumnes;
-var numerosFiles;
-var solucio;
-var totalSelec;
 
 
 if (localStorage.getItem("radioDificultat") === null) {
@@ -45,7 +39,12 @@ var files = 0;
 var columnes = 0;
 var widthCanvasTotal = canvas.width;
 var heightCanvasTotal = canvas.height;
+var numerosColumnes;
+var numerosFiles;
+var solucio;
+var totalSelec;
 
+//Carregam el numeros exteriors en dificultat facil
 if (dificultatElegida == "facil") { // 6
     dificultat = 8;
     solucio = 1062;
@@ -59,6 +58,7 @@ if (dificultatElegida == "facil") { // 6
         [1, 4, 5, 8, 1, 1, 3, 1],
         [1, 99, 99, 99, 4, 2, 99, 99]
     ];
+    //Carregam el numeros exteriors en dificultat "intermig"
 } else if (dificultatElegida == "intermig") { //
     dificultat = 16;
     solucio = 14156;
@@ -71,10 +71,11 @@ if (dificultatElegida == "facil") { // 6
     ];
 
     numerosFiles = [
-        [24, 6, 2, 10, 8, 5, 7, 3, 1, 5, 3, 5, 7, 4, 5, 3, 3],
+        [0, 6, 2, 10, 8, 5, 7, 3, 1, 5, 3, 5, 7, 4, 5, 3, 3],
         [99, 99, 3, 99, 2, 4, 3, 3, 8, 99, 99, 99, 99, 3, 99, 99],
         [99, 99, 99, 99, 99, 2, 2, 3, 99, 99, 99, 99, 99, 99, 99, 99]
     ];
+    //Carregam el numeros exteriors en dificultat "dificil"
 } else if (dificultatElegida == "dificil") {
     dificultat = 24;
     solucio = 82373;
@@ -102,16 +103,6 @@ if (dificultatElegida == "facil") { // 6
         [99, 99, 99, 99, 99, 99, 99, 1, 1, 99, 1, 1, 1, 1, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99]
     ];
 }
-console.log(widthCanvasTotal);
-console.log(heightCanvasTotal);
-
-/*
-for (var i = 200; i < canvas.height; i += 50) {
-    ctx.moveTo(0, i);
-    ctx.lineTo(canvas.height, i);
-    ctx.stroke();
-}
-*/
 
 var taulell = {
     caselles: [],
@@ -143,6 +134,7 @@ var taulell = {
 
     },
 
+    //Carregam els bordes exteriors amb els seus respectius numeros
     initExterior: function () {
         numeroQuadrats = dificultat;
         widthBox = this.width / numeroQuadrats;
@@ -196,12 +188,12 @@ var taulell = {
             }
         }
     },
+    //Reiniciam el taulell
     reinit: function () {
         alert("Reiniciant joc...");
         setTimeout(function () {
             for (var i = 0; i < taulell.caselles.length; i++) {
                 if (taulell.caselles[i].marcat) {
-                    console.log("Ha entrado")
                     taulell.caselles[i].marcat = false;
 
                 }
@@ -222,7 +214,6 @@ var taulell = {
         }
     },
     seleccionarCasella: function (x, y) {
-        console.log("Ha entrada en seleccionar casella");
         if (localStorage.getItem("temporitzador") === "si") {
             if (!iniciTemp) {
                 play();
@@ -274,6 +265,7 @@ function Casella(x1, y1, width, height, background, colorValor, valor) {
     }
 }
 
+//Funcio que comprova si hem guanyat o no
 function comprovaMarcades(caselles) {
     var marcades = 0;
     var valueTotal = 0;
@@ -281,8 +273,6 @@ function comprovaMarcades(caselles) {
         if (caselles[i].marcat) {
             marcades++;
             valueTotal = valueTotal + caselles[i].valor;
-            console.log(marcades);
-            console.log(valueTotal);
         }
     }
     if (marcades == totalSelec && valueTotal == solucio) {
@@ -292,22 +282,23 @@ function comprovaMarcades(caselles) {
         var acabatsDificil;
         pause();
         var tempsFet = document.querySelector("#rellotge").innerHTML;
-        if (localStorage.getItem("tempsRealitzat") === null) {
-            localStorage.setItem("primerTempsRealitzat", true);
+        if (localStorage.getItem("temporitzador") === null || localStorage.getItem("temporitzador") == "no") {
+
+        } else {
+            if (localStorage.getItem("tempsRealitzat") === null) {
+                localStorage.setItem("primerTempsRealitzat", true);
+            }
+            localStorage.setItem("tempsRealitzat", tempsFet);
         }
 
-        localStorage.setItem("tempsRealitzat", tempsFet);
         stop();
         iniciTemp = false;
-        console.log(tempsFet)
 
 
         if (localStorage.getItem("GuanyadesFacil") === null) {
             acabatsFacil = 0;
-            console.log("Primera vegada: " + acabatsFacil)
         } else {
             acabatsFacil = parseInt(localStorage.getItem("GuanyadesFacil"));
-            console.log("Total facil: " + acabatsFacil)
         }
 
 
@@ -338,13 +329,12 @@ function comprovaMarcades(caselles) {
 
 }
 
+//Inicialitzam el taulell i el exterior del taulell
 taulell.init();
 taulell.initExterior();
-console.log(taulell.caselles);
 
 
-//Temporitzador
-
+//Temporitzador del hanjie
 var timer;
 
 var temps = {

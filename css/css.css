@@ -1,22 +1,20 @@
 /****** Pàgina globalment ******/
 
 @import url('https://fonts.googleapis.com/css?family=Righteous|Varela+Round');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
     width: 95%;
     margin: auto;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
 }
 
 main {
-    background-color:#e8e8e8;
+    background-color: #e8e8e8;
     font-family: 'Varela Round', sans-serif;
     position: relative;
     z-index: 1;
@@ -24,42 +22,41 @@ main {
 }
 
 /****** Menu ******/
+
 header {
     /* Flex pare */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-end;
-
     color: white;
     font-family: 'Righteous', cursive;
     background-color: #b399c4;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     transition: box-shadow 0.3s ease-in-out;
 }
 
 header:hover {
-    box-shadow: -1px 7px 15px 3px rgba(0,0,0,1);
+    box-shadow: -1px 7px 15px 3px rgba(0, 0, 0, 1);
 }
 
 header>h1>img {
     width: 10%;
-}  
+}
 
-header>nav{
+header>nav {
     /* Flex fill */
     flex-basis: 100%;
 }
-    
-header>nav>ul{
+
+header>nav>ul {
     /* Flex pare */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
-
     list-style-type: none;
-    margin:0;
+    margin: 0;
     padding-right: 25px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -80,21 +77,21 @@ header>nav>ul>li a {
 }
 
 header>nav>ul>li:first-child>a {
-     background-color: #ffd800;
+    background-color: #ffd800;
 }
 
 header>nav>ul>li a:hover {
     /*background-color: #7c5ea3;^*/
-    color:white;
+    color: white;
 }
 
 /****** Footer ******/
-footer{
+
+footer {
     /* Flex pare */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
     background-color: #b399c4;
     font-family: 'Righteous', cursive;
     position: fixed;
@@ -108,24 +105,23 @@ footer{
     padding-top: 1%;
 }
 
-footer>section:nth-child(1),  footer>section:nth-child(2){
+footer>section:nth-child(1), footer>section:nth-child(2) {
     /* Flex fill */
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
-
     /*Flex pare*/
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-footer>section:nth-child(1){
+footer>section:nth-child(1) {
     /* Flex fill */
     flex-basis: 60%;
 }
 
-footer>section:nth-child(2){
+footer>section:nth-child(2) {
     /* Flex fill */
     flex-basis: 40%;
 }
@@ -133,15 +129,13 @@ footer>section:nth-child(2){
 footer>section:nth-child(3) {
     /* Flex fill */
     flex-basis: 100%;
-    background-color:#7a5f84;
-
+    background-color: #7a5f84;
     /* Flex pare */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-
 }
 
 footer section h4 {
@@ -150,21 +144,18 @@ footer section h4 {
     margin-left: 10px;
 }
 
-
-footer section ul{
+footer section ul {
     /* Flex fill */
     flex-basis: 85%;
-
     /* Flex pare */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-
     list-style-type: none;
 }
 
-footer>section ul li a{
+footer>section ul li a {
     text-decoration: none;
     font-size: 1.3em;
 }
@@ -173,3 +164,79 @@ footer>section address {
     font-size: 1em;
 }
 
+/* Animació footer */
+
+#special {
+    text-align: center;
+}
+
+footer #special div {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+footer #special div:first-of-type {
+    animation: showup 7s infinite;
+}
+
+footer #special div:last-of-type {
+    width: 0px;
+    animation: reveal 7s infinite;
+}
+
+footer #special div:last-of-type span {
+    margin-left: -355px;
+    animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        margin-left: -300px;
+    }
+    20% {
+        margin-left: -300px;
+    }
+    35% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+    20% {
+        opacity: 1;
+        width: 0px;
+    }
+    30% {
+        width: 200px;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200px;
+    }
+}
