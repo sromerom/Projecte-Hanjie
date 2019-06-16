@@ -276,15 +276,15 @@ function comprovaMarcades(caselles) {
         }
     }
     if (marcades == totalSelec && valueTotal == solucio) {
-        alert("Has guanyat!!!!!!!")
+        alert("Has guanyat!")
         var acabatsFacil;
         var acabatsIntermig;
         var acabatsDificil;
         pause();
-        var tempsFet = document.querySelector("#rellotge").innerHTML;
         if (localStorage.getItem("temporitzador") === null || localStorage.getItem("temporitzador") == "no") {
 
         } else {
+            var tempsFet = document.querySelector("#rellotge").innerHTML;
             if (localStorage.getItem("tempsRealitzat") === null) {
                 localStorage.setItem("primerTempsRealitzat", true);
             }
@@ -381,6 +381,8 @@ function stop() {
 }
 
 function paint(temps) {
-    document.querySelector('#rellotge').innerHTML = temps.hores + ":" + temps.minuts + ":" + temps.segons;
+    if (localStorage.getItem("temporitzador") == "si") {
+        document.querySelector('#rellotge').innerHTML = temps.hores + ":" + temps.minuts + ":" + temps.segons;
+    }
 }
 
